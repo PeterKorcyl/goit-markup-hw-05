@@ -94,6 +94,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-description:hover {
@@ -104,6 +105,19 @@ img {
   color: var(--pressed-state-color);
 }
 
+.underline {
+  color: var(--pressed-state-color);
+}
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  width: 100%;
+  background-color: var(--pressed-state-color);
+  border-radius: 2px;
+}
 .address {
   font-style: normal;
 }
@@ -163,6 +177,7 @@ img {
   margin: auto;
   margin-top: 48px;
   display: block;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-button:hover {
   background-color: var(--pressed-state-color);
@@ -351,6 +366,8 @@ img {
   align-items: center;
   justify-content: center;
   color: var(--subtle-text-color);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-list-link:hover {
@@ -388,18 +405,6 @@ img {
   justify-content: center;
   margin-bottom: 72px;
 }
-.link-porfolio-shadow {
-  display: block;
-}
-.link-porfolio-shadow:hover {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-.link-porfolio-shadow:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
 .filter-button {
   color: var(--primary-brand-color);
   background-color: var(--light-color);
@@ -447,7 +452,38 @@ img {
 .list-image-portfolio {
   width: calc((100% - 48px) / 3);
 }
+.link-porfolio-shadow {
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-porfolio-shadow:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.link-porfolio-shadow:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+}
 
+.container-hidden-potfolio {
+  position: relative;
+  overflow: hidden;
+}
+
+.potfolio-hidden-paragraph {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--light-color);
+  padding: 40px 32px;
+  background-color: var(--primary-brand-color);
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .list-options {
   display: flex;
   flex-wrap: wrap;
@@ -512,6 +548,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-socials-link:hover {
   background-color: var(--success-color);
@@ -568,4 +605,68 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.modal-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 408px;
+  height: 584px;
+  min-height: 584px;
+  background: var(--modal-background-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-btn:hover {
+  background-color: var(--pressed-state-color);
+  border: none;
+  fill: var(--white-background-color);
+}
+.close-btn:focus {
+  background-color: var(--pressed-state-color);
+  border: none;
+  fill: var(--white-background-color);
+}
+
+.icon-close {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

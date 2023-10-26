@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework2</title>
+  <title>Homework5</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +25,13 @@
         <a class="logo-header link" href="./index.html">Web<span class="logo-studio">Studio</span></a>
         <ul class="list list-header">
           <li>
-            <a class="page-description link" href="./index.html">Studio</a>
+            <a class="page-description link underline" href="./index.html">Studio</a>
           </li>
           <li>
-            <a class="page-description link" href="./portfolio.html">Portfolio</a>
+            <a class="page-description link " href="./portfolio.html">Portfolio</a>
           </li>
           <li>
-            <a class="page-description link" href="">Contacts</a>
+            <a class="page-description link " href="">Contacts</a>
           </li>
         </ul>
       </nav>
@@ -55,7 +55,7 @@
           Effective Solutions<br />
           for Your Business
         </h1>
-        <button type="button" class="main-button">
+        <button data-modal-open type="button" class="main-button">
           Order Service
         </button>
       </div>
@@ -378,6 +378,16 @@
       </div>
     </div>
   </footer>
+  <div class="modal-window is-hidden" data-modal>
+    <div class="modal-body">
+      <button class="close-button" type="button" data-modal-close>
+        <svg width="8" height="8" class="icon-close">
+          <use href="./images/icons.svg#icon-close-black"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>
